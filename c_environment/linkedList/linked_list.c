@@ -1,7 +1,4 @@
 #include "linked_list.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
 
 struct s_node * createNode(int32_t data) {
     struct s_node *new_node = NULL;
@@ -69,21 +66,3 @@ void print(struct s_node *root) {
     }
 }
 
-int main() {
-
-    struct s_node *root_node = createNode(20);
-    addNode(root_node, 10);
-    addNode(root_node, 15);
-    addNode(root_node, 12);
-
-
-    print(root_node);
-
-    removeNode(&root_node, 20); // pass pointer to the original pointer.
-
-    printf("\nREMOVING NODE\n");
-
-    print(root_node);
-
-    return 0;
-}

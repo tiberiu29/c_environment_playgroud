@@ -1,12 +1,16 @@
-flags=-g -Wall -std=c2x
+FLAGS=-g -Wall -Wextra -std=c2x
 
-all: linked_list
+LINK_OBJECTS=main.o linked_list.o
+MAIN=main
 
-linked_list: linked_list.o
-	gcc ${flags} $^ -o $@ 
+all: ${MAIN}
 
-linked_list.o: linked_list.c
-	gcc ${flags} -c $^
+${MAIN}: ${LINK_OBJECTS}
+	gcc ${FLAGS} $^ -o $@ 
+
+%.o: %.c
+	gcc ${FLAGS} $^ -c $@ 
 
 clean: 
-	rm -f *.o linked_list
+	rm -f *.o ${MAIN}
+

@@ -5,6 +5,14 @@ Commands to use for running:
 1. docker build -t development_c_env .
 2. docker run -v ${PWD}:/development -it development_c_env  /bin/bash
 
+--------------------------------------------------------------------
+
+C notes for self:
+
+"objdump -t *.o" = show the symbol table of an object file. Quite useful to check when you have unlinked object files
+
+"objdump -d *.o" = converts machine code to assembly and displays
+
 
 --------------------------------------------------------------------
 
