@@ -27,8 +27,6 @@ struct s_node * addNode(struct s_node *root, int32_t data) {
     return new_node;
 }
 
-// get pointer of the pointer root
-// we need this because otherwise we cannot change the original pointer value of root.
 void removeNode(struct s_node ** root, int32_t data) {
 
     struct s_node *prev_node = NULL;
@@ -55,6 +53,21 @@ void removeNode(struct s_node ** root, int32_t data) {
         free(current_node);
     }
 }
+
+void reverse(struct s_node ** root) {
+    struct s_node *prev_node = NULL;
+    struct s_node *current_node = *root;
+
+    while(current_node != NULL) {
+        struct s_node *temp_next_node = current_node->next;
+
+        current_node->next = prev_node;
+        prev_node = current_node;
+        current_node = temp_next_node;
+    }
+
+    *root = prev_node;
+};
 
 void print(struct s_node *root) {
 
